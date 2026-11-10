@@ -80,7 +80,7 @@ const upToV1 = async (
 
 	// 5. Create extra column and backfill names for matched migrations
 	await session.transaction(async (tx) => {
-		await tx.execute(sql`ALTER TABLE ${table} ADD ${sql.identifier('name')} text`);
+		await tx.execute(sql`ALTER TABLE ${table} ADD ${sql.identifier('name')} nvarchar(max)`);
 		await tx.execute(
 			sql`ALTER TABLE ${table} ADD ${sql.identifier('applied_at')} datetime2 DEFAULT GETUTCDATE()`,
 		);

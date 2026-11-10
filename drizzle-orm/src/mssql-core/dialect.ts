@@ -145,9 +145,9 @@ export class MsSqlDialect {
 			)
 			CREATE TABLE ${sql.identifier(migrationsSchema)}.${sql.identifier(migrationsTable)} (
 				id bigint identity PRIMARY KEY,
-				hash text NOT NULL,
+				hash nvarchar(max) NOT NULL,
 				created_at bigint,
-				name text,
+				name nvarchar(max),
 				applied_at datetime2 NOT NULL DEFAULT GETUTCDATE()
 			)
 		`;
